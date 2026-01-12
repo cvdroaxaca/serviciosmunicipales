@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPN | Soluciones Tecnológicas Municipales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        guindaIPN: '#660000',
+                        guindaDark: '#420000',
+                        guindaLight: '#852020',
+                        oroIPN: '#A38B5D',
+                        oroDark: '#8a744a',
+                        oroLight: '#C5B38A',
+                        slateIPN: '#0F172A',
+                        slateLight: '#1E293B',
+                    },
+                    backgroundImage: {
+                        'circuit-pattern': "url('data:image/svg+xml,%3Csvg width=\"80\" height=\"80\" viewBox=\"0 0 80 80\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.08\"%3E%3Cpath d=\"M40 40c0-8.837-7.163-16-16-16S8 31.163 8 40s7.163 16 16 16 16-7.163 16-16zm0 0c0 8.837 7.163 16 16 16s16-7.163 16-16-7.163-16-16-16-16 7.163-16 16zm-32 0c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm64 0c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    },
+                    animation: {
+                        'slow-pan': 'pan 60s linear infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        pan: {
+                            '0%': { backgroundPosition: '0% 0%' },
+                            '100%': { backgroundPosition: '100% 100%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.015em; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .glass-nav { background: rgba(102, 0, 0, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(163, 139, 93, 0.3); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; }
+        .accordion-header.active + .accordion-content { opacity: 1; margin-bottom: 1rem; }
+        .hero-bg-animate {
+            background: linear-gradient(-45deg, #0F172A, #1E293B, #420000, #0F172A);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 bg-circuit-pattern bg-fixed">
+
+    <nav id="main-nav" class="glass-nav text-white py-4 px-6 sticky top-0 z-50 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-1.5 rounded-xl">
+                    <img src="logocvdr.jpg" alt="IPN" class="h-10">
+                </div>
+                <div>
+                    <h1 class="text-lg font-black tracking-tighter uppercase italic leading-none text-white">
+                        Soluciones <span class="text-oroIPN">Municipales</span>
+                    </h1>
+                    <p class="text-[9px] font-bold tracking-[0.2em] uppercase text-oroLight/80">CVDR Unidad Oaxaca - IPN</p>
+                </div>
+            </div>
+            <a href="#contacto" class="bg-oroIPN hover:bg-guindaIPN text-white px-6 py-2 rounded-full font-bold text-[11px] uppercase tracking-widest transition-all shadow-lg">
+                Contacto Directo
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-bg-animate text-white pt-32 pb-40 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <span class="reveal inline-block px-4 py-1.5 border border-oroIPN rounded-full text-oroLight text-[10px] font-black uppercase tracking-[0.3em] mb-8 bg-oroIPN/10 backdrop-blur-sm">
+                Cuerpo Técnico Multidisciplinario de Alto Nivel
+            </span>
+            <h2 class="reveal delay-100 text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-8 uppercase italic">
+                Ciencia y Alta Tecnología<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-oroIPN to-white">al Servicio de su Municipio.</span>
+            </h2>
+            <p class="reveal delay-200 text-xl text-slate-300 max-w-3xl mx-auto font-light mb-12">
+                Impulsamos la administración pública mediante <strong class="text-oroLight font-medium">IA</strong>, Geotecnología, y Estrategias Financieras robustas diseñadas por doctores y especialistas.
+            </p>
+        </div>
+    </header>
+
+    <section id="portafolio" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <h3 class="text-guindaIPN font-black text-sm uppercase tracking-[0.4em] mb-4 text-center">Catálogo Integral de Servicios 2026</h3>
+            <h2 class="text-4xl md:text-6xl font-black text-slateIPN tracking-tighter uppercase italic text-center">
+                Estructura de <span class="text-guindaIPN">Ingeniería Pública</span>
+            </h2>
+        </div>
+
+        <div id="services-container" class="space-y-12">
+            </div>
+    </section>
+
+    <footer id="contacto" class="bg-slateIPN pt-24 pb-12 px-6 text-white text-center">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-12 italic uppercase tracking-tighter">
+                Transforme su administración con el <br>
+                <span class="text-oroIPN">Respaldo Científico del IPN</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:border-oroIPN/50 transition-all">
+                    <i data-lucide="mail" class="w-8 h-8 text-oroIPN mx-auto mb-4"></i>
+                    <p class="text-[10px] font-bold text-oroLight uppercase mb-2">Canal Institucional</p>
+                    <a href="mailto:hcruzp@ipn.mx" class="text-xl font-bold">hcruzp@ipn.mx</a>
+                </div>
+                <div class="p-8 rounded-3xl border border-white/10 bg-white/5 hover:border-guindaIPN/50 transition-all">
+                    <i data-lucide="map-pin" class="w-8 h-8 text-guindaIPN mx-auto mb-4"></i>
+                    <p class="text-[10px] font-bold text-oroLight uppercase mb-2">Ubicación</p>
+                    <p class="text-xl font-bold">CVDR Oaxaca - IPN</p>
+                </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Logo_IPN.png" alt="IPN" class="h-16 mx-auto brightness-0 invert opacity-50 mb-4">
+            <p class="text-oroLight text-[10px] font-black uppercase tracking-[0.4em]">"La Técnica al Servicio de la Patria"</p>
+        </div>
+    </footer>
+
+    <script>
+        const municipalServices = [
+            {
+                division: "Desarrollo de Páginas Web Municipales",
+                lead: "M. en Tecnologías de la Información / UX Designer",
+                colorTheme: "slate",
+                icon: "layout",
+                profiles: ["Fullstack Developers", "Diseñadores UI/UX", "Expertos en Accesibilidad"],
+                featured: true, // Marcador para destacar esta sección
+                services: [
+                    {
+                        title: "Portales de Gobierno Abierto y Transparencia",
+                        desc: "Diseño y desarrollo de sitios web institucionales que cumplen con las normativas de transparencia y acceso a la información pública.",
+                        impact: "Cumplimiento normativo y confianza ciudadana."
+                    },
+                    {
+                        title: "Sistemas de Pago de Servicios en Línea",
+                        desc: "Integración de pasarelas de pago seguras para predial, agua y multas directamente en el portal municipal.",
+                        impact: "Recaudación 24/7 sin filas."
+                    },
+                    {
+                        title: "Plataformas de Participación Ciudadana",
+                        desc: "Módulos interactivos para reportes ciudadanos, consultas públicas y presupuestos participativos en tiempo real.",
+                        impact: "Vinculación directa gobierno-ciudadano."
+                    }
+                ]
+            },
+            {
+                division: "Gobernanza Digital y Territorio",
+                lead: "Dr. en Ciencias de Inf. Geoespacial / M. en Gobierno Electrónico",
+                colorTheme: "guinda",
+                icon: "globe",
+                profiles: ["Ing. en Sistemas", "Lic. en Informática", "Especialistas SIG"],
+                services: [
+                    {
+                        title: "Catastro Multifinalitario 4.0",
+                        desc: "Actualización de la base gravable mediante fotogrametría con drones y validación geoespacial. Identificación automática de omisos y nuevas construcciones.",
+                        impact: "Aumento de recaudación predial entre 20% y 45%."
+                    },
+                    {
+                        title: "Geoportal Estadístico Municipal",
+                        desc: "Plataforma pública de datos abiertos que integra capas de infraestructura, servicios y economía para la toma de decisiones ciudadana y de gobierno.",
+                        impact: "Transparencia proactiva y democratización de datos."
+                    },
+                    {
+                        title: "Ventanilla Única Digital (Gob-Tech)",
+                        desc: "Digitalización total de trámites municipales bajo estándares de gobierno electrónico para eliminar la corrupción.",
+                        impact: "Reducción de tiempos de respuesta en un 70%."
+                    }
+                ]
+            },
+            {
+                division: "Seguridad e IA (Visión Artificial)",
+                lead: "Dr. en Computación (IA) / Dr. en Electrónica (Visión)",
+                colorTheme: "oro",
+                icon: "shield-check",
+                profiles: ["2 Ing. Electrónica", "1 Lic. en Matemáticas", "Devs IA"],
+                services: [
+                    {
+                        title: "Escudo Tecnológico Inteligente (C2/C4)",
+                        desc: "Implementación de algoritmos de visión artificial para reconocimiento de placas (LPR), detección facial y monitoreo de multitudes.",
+                        impact: "Optimización de la respuesta policial inmediata."
+                    },
+                    {
+                        title: "Gestión de Tránsito Inteligente",
+                        desc: "Optimización de flujos vehiculares mediante semáforos inteligentes controlados por algoritmos de aprendizaje profundo.",
+                        impact: "Reducción del 25% en tiempos de traslado."
+                    }
+                ]
+            },
+            {
+                division: "Ingeniería Financiera y Administración",
+                lead: "Lic. en Economía / 2 Contadoras Certificadas",
+                colorTheme: "slate",
+                icon: "trending-up",
+                profiles: ["2 Lic. en Administración", "Auditores Fiscales", "Analistas de Datos"],
+                services: [
+                    {
+                        title: "Modernización del Padrón de Comercio",
+                        desc: "Censo digital y georreferenciado de unidades económicas para regularización de licencias.",
+                        impact: "Incremento sostenido en ingresos propios (Ramo 28)."
+                    },
+                    {
+                        title: "Auditoría Preventiva y Armonización",
+                        desc: "Regularización de cuenta pública bajo lineamientos CONAC y preparación para revisiones de OSFE y ASF.",
+                        impact: "Cero observaciones en la cuenta pública."
+                    }
+                ]
+            },
+            {
+                division: "Sustentabilidad y Agua (IoT)",
+                lead: "M. en Ciencias Ambientales / Especialista en IoT",
+                colorTheme: "guinda",
+                icon: "droplets",
+                profiles: ["Ing. Electrónica", "Especialistas en Medio Ambiente"],
+                services: [
+                    {
+                        title: "Telemetría para Redes de Agua Potable",
+                        desc: "Sensores remotos para monitorear niveles de tanques, presión y detección de fugas en tiempo real.",
+                        impact: "Ahorro del 30% en energía y agua."
+                    },
+                    {
+                        title: "Logística Inteligente de Residuos",
+                        desc: "Optimización de rutas de recolección mediante algoritmos geográficos.",
+                        impact: "Reducción de costos operativos de limpieza."
+                    }
+                ]
+            },
+            {
+                division: "Transformación Educativa y Talento",
+                lead: "Dra. en Tecnología Educativa",
+                colorTheme: "oro",
+                icon: "graduation-cap",
+                profiles: ["Lic. en Informática", "Diseñadores Instruccionales"],
+                services: [
+                    {
+                        title: "Centro de Certificación de Competencias",
+                        desc: "Unidad evaluadora para certificar al personal municipal en estándares nacionales (CONOCER).",
+                        impact: "Calidad profesional en el servicio público."
+                    },
+                    {
+                        title: "Centros de Innovación STEAM",
+                        desc: "Laboratorios de robótica y programación para reducir la brecha tecnológica en la juventud.",
+                        impact: "Fomento de vocaciones científicas."
+                    }
+                ]
+            }
+        ];
+
+        // RENDERIZADO
+        const container = document.getElementById('services-container');
+        const colorMap = {
+            guinda: { border: 'border-guindaIPN', text: 'text-guindaIPN', bg: 'bg-guindaIPN' },
+            oro: { border: 'border-oroIPN', text: 'text-oroIPN', bg: 'bg-oroIPN' },
+            slate: { border: 'border-slateIPN', text: 'text-slateIPN', bg: 'bg-slateIPN' }
+        };
+
+        municipalServices.forEach((cat, idx) => {
+            const theme = colorMap[cat.colorTheme];
+            const div = document.createElement('div');
+            // Si es la sección destacada, añadimos un anillo de luz sutil
+            const featuredClass = cat.featured ? 'ring-2 ring-slate-200 ring-offset-4' : '';
+            
+            div.className = `reveal bg-white rounded-[2rem] shadow-xl overflow-hidden border-t-8 ${theme.border} group ${featuredClass}`;
+            
+            let servicesHTML = '';
+            cat.services.forEach((s, sIdx) => {
+                const sId = `s-${idx}-${sIdx}`;
+                servicesHTML += `
+                    <div class="border-b border-slate-100 last:border-0">
+                        <button onclick="toggleAccordion('${sId}')" class="accordion-header w-full flex items-center justify-between p-6 hover:bg-slate-50 transition-colors text-left">
+                            <span class="text-lg font-bold text-slateIPN flex items-center gap-3">
+                                <i data-lucide="chevron-right" class="w-4 h-4 ${theme.text} transition-transform duration-300"></i>
+                                ${s.title}
+                            </span>
+                            <i data-lucide="plus-circle" class="w-5 h-5 text-slate-300 transition-transform"></i>
+                        </button>
+                        <div id="${sId}" class="accordion-content px-8">
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">${s.desc}</p>
+                            <div class="inline-flex items-center gap-3 bg-slate-50 p-3 rounded-xl mb-6">
+                                <div class="${theme.bg} p-2 rounded-lg text-white">
+                                    <i data-lucide="zap" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs font-bold ${theme.text} uppercase tracking-tight">Impacto: ${s.impact}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            div.innerHTML = `
+                <div class="flex flex-col lg:flex-row">
+                    <div class="lg:w-1/3 p-10 bg-slate-50/50 border-r border-slate-100 relative overflow-hidden">
+                        ${cat.featured ? '<span class="absolute top-4 right-4 bg-oroIPN text-white text-[8px] font-black px-2 py-1 rounded uppercase tracking-tighter">Prioritario</span>' : ''}
+                        <div class="w-16 h-16 ${theme.bg} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg">
+                            <i data-lucide="${cat.icon}" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slateIPN uppercase italic leading-tight mb-4">${cat.division}</h3>
+                        <div class="mb-6">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Líder de División</p>
+                            <p class="text-sm font-bold text-slate-700">${cat.lead}</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">Equipo Técnico</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${cat.profiles.map(p => `<span class="px-3 py-1 bg-white border border-slate-200 rounded-full text-[9px] font-bold text-slate-500">${p}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3">
+                        ${servicesHTML}
+                    </div>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+
+        lucide.createIcons();
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const header = el.previousElementSibling;
+            const icon = header.querySelector('[data-lucide="chevron-right"]');
+            
+            if (el.style.maxHeight) {
+                el.style.maxHeight = null;
+                header.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                el.style.maxHeight = el.scrollHeight + "px";
+                header.classList.add('active');
+                icon.style.transform = 'rotate(90deg)';
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
